@@ -10,12 +10,18 @@ import Medicine from './components/Medicine/Medicine';
 import SideEffects from './components/SideEffects/SideEffects';
 import Sidebar from './components/Sidebar/Sidebar';
 import HeartRate from './components/HeartRate/HeartRate';
+import DailyTrain from './components/DailyTrain/DailyTrain';
+import Bandage from './components/Bandage/Bandage';
+import DailySteps from './components/DailySteps/DailySteps';
 
 const cmpMap = {
     kalbeten: Medicine,
     doxylamine: Medicine,
     nausea: SideEffects,
     heartRate: HeartRate,
+    dailyTrain: DailyTrain,
+    bandage: Bandage,
+    dailySteps: DailySteps,
 };
 
 function App() {
@@ -65,7 +71,7 @@ function App() {
                                 Component && (
                                     <div className='cardWrapper'>
                                         <Component key={id} {...handleVariantProps(id)} currentDate={currentDate} onRemoveElement={removeElement} />
-                                        <Button variant='contained' color='secondary' className='hey' startIcon={<DeleteIcon />} onClick={() => removeElement(id)}>
+                                        <Button variant='contained' color='secondary' className='removeBtn' startIcon={<DeleteIcon />} onClick={() => removeElement(id)}>
                                             מחק
                                         </Button>
                                     </div>
