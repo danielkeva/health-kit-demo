@@ -1,0 +1,15 @@
+.results {
+    display: flex;
+    justify-content: center;
+}
+
+.timeWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    text-align: center;
+}
+
+.icon {
+    font-size: 60px !important;
+}

@@ -1,0 +1,35 @@
+body {
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+p {
+    margin: 0;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    margin-bottom: 20px;
+    text-align: center;
+    width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 15px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+    text-align: right;
+}
+
+.cardWrapper {
+    position: relative;
+    .hey {
+        position: absolute !important;
+        top: 10px !important;
+        left: 10px;
+        background-color: #fd5f5e !important ;
+    }
+}
+
+.subTitle {
+    margin: 10px;
+    // font-weight: 500;
+}
