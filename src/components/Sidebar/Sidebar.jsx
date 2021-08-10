@@ -12,7 +12,7 @@ const elements = [
     { id: 'bandage', title: 'מעקב אחר הוראות טיפול' },
 ];
 
-const Sidebar = ({ currentElements, addElement }) => {
+const Sidebar = ({ currentElements = [], addElement }) => {
     const isDisabled = id => {
         const exist = currentElements.find(el => el.id === id);
         return !!exist;

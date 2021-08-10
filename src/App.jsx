@@ -64,7 +64,8 @@ function App() {
                 {data.carePlans && <Sidebar currentElements={data.carePlans[1].elements} addElement={pushElement} />}
                 <div className={style.content}>
                     {data.carePlans &&
-                        data.carePlans[1].elements.map(({ id }) => {
+                        data.carePlans.length > 0 &&
+                        data.carePlans[1]?.elements?.map(({ id }) => {
                             const Component = cmpMap[id];
 
                             return (
