@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './DayPicker.module.scss';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
