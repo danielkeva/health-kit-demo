@@ -49,7 +49,6 @@ function App() {
         const props = {};
         props.task = data.tasks[type];
         const mapDates = Object.entries(data.userData).map(([date, value]) => {
-            console.log('value.tasks[type]', value.tasks[type], 'type ', type, ' va;ue', value.tasks);
             return {
                 date,
                 results: value.tasks[type],
@@ -80,8 +79,8 @@ function App() {
 
                             return (
                                 Component && (
-                                    <div className='cardWrapper'>
-                                        <Component key={id} {...handleVariantProps(id)} currentDate={currentDate} onRemoveElement={removeElement} />
+                                    <div className='cardWrapper' key={id}>
+                                        <Component {...handleVariantProps(id)} currentDate={currentDate} onRemoveElement={removeElement} />
                                         <Button variant='contained' color='secondary' className='removeBtn' startIcon={<DeleteIcon />} onClick={() => removeElement(id)}>
                                             מחק
                                         </Button>

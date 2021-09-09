@@ -11,10 +11,10 @@ const SideEffects = ({ task, userData, currentDate }) => {
                     <span>תכנית טיפול:</span> <span>{task.instructions}</span>
                 </p>
                 <div>
-                    {userData.map(({ date, results }) => (
+                    {userData.map(({ date, results }, index) => (
                         <>
                             {date === currentDate && (
-                                <div style={{ textAlign: 'center' }}>
+                                <div key={index} style={{ textAlign: 'center' }}>
                                     {results ? (
                                         <>
                                             <span>כמות הפעמים שדווח על תופעות לוואי:</span> <span>{results}</span>

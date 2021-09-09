@@ -10,14 +10,15 @@ const DayPicker = ({ dates, onSelectDate, selectedDate }) => {
     const [currentPage, setPage] = useState(1);
 
     useEffect(() => {
-        console.log('dates', dates[0]);
         setCurrDates(paginate(dates, 7, currentPage));
         onSelectDate(dates[0]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        setCurrDates(paginate(dates, 7, currentPage));
+        const updatedDates = paginate(dates, 7, currentPage);
+        setCurrDates(updatedDates);
+        onSelectDate(updatedDates[0]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage]);
 
@@ -43,7 +44,7 @@ const DayPicker = ({ dates, onSelectDate, selectedDate }) => {
                                 [style.selected]: date === selectedDate,
                             })}
                         >
-                            {date.charAt(date.length - 2) !== '0' ? date.charAt(date.length - 2) + date.charAt(date.length - 1) : date.charAt(date.length - 1)}
+                            {date.slice(date.length - 2, date.length) + '/' + date.slice(date.length - 5, date.length - 3)}
                         </span>
                     ))}
             </div>

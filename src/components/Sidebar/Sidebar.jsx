@@ -23,14 +23,12 @@ const Sidebar = ({ currentElements = [], addElement, carePlans, onSelectCarePlan
         <div className={style.sidebar}>
             {carePlans?.length > 0 && <CarePlanePicker carePlans={carePlans} onSelectCarePlan={onSelectCarePlan} />}
             {elements.map(({ id, title }) => (
-                <>
-                    <div key={id} className={style.sidebarItem}>
-                        <p className={style.title}>{title}</p>
-                        <Button variant='outlined' color='primary' disabled={isDisabled(id)} onClick={() => addElement(id)}>
-                            הוספה
-                        </Button>
-                    </div>
-                </>
+                <div key={id} className={style.sidebarItem}>
+                    <p className={style.title}>{title}</p>
+                    <Button variant='outlined' color='primary' disabled={isDisabled(id)} onClick={() => addElement(id)}>
+                        הוספה
+                    </Button>
+                </div>
             ))}
         </div>
     );
