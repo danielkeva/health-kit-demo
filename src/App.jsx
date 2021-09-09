@@ -28,6 +28,7 @@ function App() {
     const [data, setData] = useState({});
     const [dateList, setDates] = useState([]);
     const [currentDate, setCurrentDate] = useState();
+    const [selectedCarePlan, setCarePlan] = useState();
 
     useEffect(() => {
         getAll().on('value', handleData);
@@ -40,19 +41,20 @@ function App() {
         setData(data.val());
         const dates = Object.entries(data.val().userData).map(([date]) => date);
         setDates(dates);
+        if (!selectedCarePlan) setCarePlan(data.val().carePlans[1]);
     };
 
     const handleVariantProps = type => {
         const props = {};
         props.task = data.tasks[type];
         const mapDates = Object.entries(data.userData).map(([date, value]) => {
-            // console.log("value", value.tasks[type]);
+            console.log('value.tasks[type]', value.tasks[type], 'type ', type, ' va;ue', value.tasks);
             return {
                 date,
                 results: value.tasks[type],
-                // results: Object.entries(value.tasks[type] || {}),
             };
         });
+
         props.userData = mapDates;
         return props;
     };
@@ -61,11 +63,18 @@ function App() {
         <div className={style.wrapper}>
             <header className='App-header'>{dateList.length > 0 && <DayPicker dates={dateList} onSelectDate={setCurrentDate} selectedDate={currentDate} />}</header>
             <div className={style.inner}>
-                {data.carePlans && <Sidebar currentElements={data.carePlans[1].elements} addElement={pushElement} />}
+                {data.carePlans && (
+                    <Sidebar
+                        carePlans={data.carePlans}
+                        onSelectCarePlan={selectedIndex => setCarePlan(data.carePlans[selectedIndex])}
+                        currentElements={selectedCarePlan?.elements}
+                        addElement={pushElement}
+                    />
+                )}
                 <div className={style.content}>
                     {data.carePlans &&
                         data.carePlans.length > 0 &&
-                        data.carePlans[1]?.elements?.map(({ id }) => {
+                        selectedCarePlan?.elements?.map(({ id }) => {
                             const Component = cmpMap[id];
 
                             return (

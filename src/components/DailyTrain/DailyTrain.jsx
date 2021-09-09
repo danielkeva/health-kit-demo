@@ -7,12 +7,12 @@ const DailyTrain = ({ task, userData, currentDate }) => {
             <h2>{task.title}</h2>
             <Divider />
             <div>
-                {userData.map(({ date, results }) => (
+                {userData.map(({ date, results }, index) => (
                     <>
                         {date === currentDate && (
                             <>
                                 {results !== undefined ? (
-                                    <div className={style.content}>
+                                    <div className={style.content} key={index}>
                                         <p>
                                             {/* <span>דופק מינימלי</span> */}
                                             <span>{results ? 'בוצע אימון יומי' : 'לא בוצע אימון יומי'}</span>
