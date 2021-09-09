@@ -35,6 +35,7 @@ function App() {
         return () => {
             getAll().on('value', handleData);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleData = data => {
